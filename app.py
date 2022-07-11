@@ -91,7 +91,7 @@ def get_file_folder (path):
         # get code extension details
         file_type = "unknown"
         for extension, details in code_extensions.items():
-            if extension in path_regular:
+            if path_regular.endswith(extension):
                 file_type = details
 
 
