@@ -97,3 +97,6 @@ def get_file_folder (path):
 
         # Return file content
         return {"file path": path, "content": content, "file type": file_type}
+
+    # Error file not found
+    return {"error": "File not found"}
