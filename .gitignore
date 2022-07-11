@@ -1,0 +1,13 @@
+__pycache__
+*__pycache__
+*.json
+*temp.*
+temp.*
+*.log*
+*.log*
+*.zip
+*.png
+*desktop.ini
+last_posts.txt
+venv
+files
