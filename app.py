@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, send_file
 
 app = Flask (__name__)
 files_folder = os.path.join(os.path.dirname (__file__), "files")
@@ -78,12 +78,22 @@ def get_file_folder (path):
 
     if os.path.isfile (path_regular):
         
-        # Read file
+        # Return images
+        for image_extension in image_extensions:
+            if image_extension in path_regular:
+                return send_file(path_regular, mimetype=f'image/{image_extension.replace(".", "")}')
+        
+        # Read text file
         content = ""
         with open (path_regular, encoding='utf-8') as file:
             content = file.read()
 
-        # Get file type
-        
+        # get code extension details
+        file_type = "unknown"
+        for extension, details in code_extensions.items():
+            if extension in path_regular:
+                file_type = details
 
-        return {"file path": path, "content": content, "type": }
+
+        # Return file content
+        return {"file path": path, "content": content, "file type": file_type}
